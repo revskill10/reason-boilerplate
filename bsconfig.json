@@ -1,7 +1,17 @@
 {
   "name": "reason-scripts",
-  "sources": ["src"],
-  "bs-dependencies": ["reason-react", "@glennsl/bs-jest"],
+  "sources": [
+    {
+      "dir" : "src", 
+      "subdirs": true
+    },
+    {
+      "dir": "__tests__",
+      "type": "dev"
+    }
+  ],
+  "bs-dependencies": ["reason-react"],
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "reason": {
     "react-jsx": 2
   },
