@@ -1,4 +1,4 @@
-let parseReposJson = json => json |> Json.Decode.array(RepoData.parseRepoJson);
+let parseReposJson = json => json |> Json.Decode.array(Store.parseRepoJson);
 
 let reposUrl = "https://api.github.com/search/repositories?q=topic%3Areasonml&type=Repositories";
 

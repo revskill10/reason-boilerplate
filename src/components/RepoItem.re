@@ -1,6 +1,6 @@
 let component = ReasonReact.statelessComponent("RepoItem");
 
-let make = (~repo: RepoData.repo, _children) =>
+let make = (~repo: Store.repo, _children) =>
   {
     ...component,
     render: (_self) =>
