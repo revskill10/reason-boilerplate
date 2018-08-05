@@ -18,6 +18,20 @@ let dummyRepos: array(RepoData.repo) = [|
   }, 
 |];
 
+let dummyRepos2: array(RepoData.repo) = [|
+  RepoData.parseRepoJson(
+    Js.Json.parseExn(
+      {js|
+        {
+          "stargazers_count": 93,
+          "full_name": "reasonml/reason-tools",
+          "html_url": "https://github.com/reasonml/reason-tools"
+        }
+      |js}
+    )
+  )
+|];
+
 let initialState = () => { repoData : None }; 
 
 let component = ReasonReact.reducerComponent("App");
@@ -25,7 +39,7 @@ let component = ReasonReact.reducerComponent("App");
 let createRepoItem = repoData => <RepoItem repo=repoData />;
 
 let loadReposButton = send =>
-  <button onClick=(_event => send(Loaded(dummyRepos)))>
+  <button onClick=(_event => send(Loaded(dummyRepos2)))>
     {ReasonReact.string("Load Repos")}
   </button>;
 
