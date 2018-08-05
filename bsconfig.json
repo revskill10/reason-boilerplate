@@ -10,7 +10,11 @@
       "type": "dev"
     }
   ],
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": [
+    "reason-react"
+  , "bs-css"
+  , "@glennsl/bs-json"
+  ],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "reason": {
     "react-jsx": 2

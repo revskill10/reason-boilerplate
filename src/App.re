@@ -40,7 +40,7 @@ let reducer = (event, state) =>
   | Loaded(loadedRepos) => ReasonReact.Update({ repoData: Some(loadedRepos) })
   };
 
-let render1 = (repoData, send) =>
+let render = (repoData, send) =>
   <div className="App">
     <div className="App-header">
       <TopBar />
@@ -49,10 +49,11 @@ let render1 = (repoData, send) =>
     (createRepoItems(repoData, send))
   </div>
 
+
 let make = (~message, _children) => {
   ...component,
   initialState,
   reducer,
   render: ({state, handle, send}) => 
-    render1(state.repoData, send)
+    render(state.repoData, send)
 };
