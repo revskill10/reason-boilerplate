@@ -1,45 +1,26 @@
 [%bs.raw {|require('./styles/App.css')|}];
 
-type state = { repoData : option(array(RepoData.repo)) }; 
+type state = { 
+  repoData : option(array(RepoData.repo)), 
+  error: option(string) 
+}; 
   
 type event = 
-  | Loaded(array(RepoData.repo));
+  | Loaded(array(RepoData.repo))
+  | Request
+  | NetworkError(string);
 
-let dummyRepos: array(RepoData.repo) = [|
-  {
-    stargazers_count: 27,
-    full_name: "jsdf/reason-react-hacker-news",
-    html_url: "https://github.com/jsdf/reason-react-hacker-news"
-  }, 
-  {
-    stargazers_count: 27,
-    full_name: "jsdf1reason-react-hacker-news",
-    html_url: "https://github.com/jsdf/reason-react-hacker-news"
-  }, 
-|];
-
-let dummyRepos2: array(RepoData.repo) = [|
-  RepoData.parseRepoJson(
-    Js.Json.parseExn(
-      {js|
-        {
-          "stargazers_count": 93,
-          "full_name": "reasonml/reason-tools",
-          "html_url": "https://github.com/reasonml/reason-tools"
-        }
-      |js}
-    )
-  )
-|];
-
-let initialState = () => { repoData : None }; 
+let initialState = () => { 
+  repoData : None, 
+  error : None
+}; 
 
 let component = ReasonReact.reducerComponent("App");
 
 let createRepoItem = repoData => <RepoItem repo=repoData />;
 
 let loadReposButton = send =>
-  <button onClick=(_event => send(Loaded(dummyRepos2)))>
+  <button onClick=(_event => send(Request))>
     {ReasonReact.string("Load Repos")}
   </button>;
 
@@ -49,18 +30,37 @@ let createRepoItems = (repoItems, send) =>
     | None => loadReposButton(send)
   };
 
+let resolve = (send) =>
+  Js.Promise.then_(
+    (res) => 
+      switch res {
+      | Js.Result.Ok(repos) => { send(Loaded(repos)); Js.Promise.resolve(); }
+      | Js.Result.Error(_err) => { send(NetworkError("Error")); Js.Promise.resolve(); }
+      }
+  ) 
+
 let reducer = (event, state) =>
-  switch event {
-  | Loaded(loadedRepos) => ReasonReact.Update({ repoData: Some(loadedRepos) })
+  switch event {  
+  | Request => ReasonReact.SideEffects(
+      self => {
+        Api.fetchRepos()
+        |> resolve(self.send)
+        |> ignore;
+      })
+  | Loaded(loadedRepos) => ReasonReact.Update({ ...state, repoData: Some(loadedRepos) })
+  | NetworkError(err) => ReasonReact.Update({ ...state, error: Some(err) })
   };
 
-let render = (repoData, send) =>
+let render = (~repoData, ~error, ~send) =>
   <div className="App">
     <div className="App-header">
       <TopBar />
       (ReasonReact.string("hehe"))
     </div>   
     (createRepoItems(repoData, send))
+    <div className="App-error">
+      <Error error=error />
+    </div>
   </div>
 
 
@@ -69,5 +69,5 @@ let make = (~message, _children) => {
   initialState,
   reducer,
   render: ({state, handle, send}) => 
-    render(state.repoData, send)
+    render(state.repoData, state.error, send)
 };
