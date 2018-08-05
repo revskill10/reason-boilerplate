@@ -4,12 +4,12 @@ type state = {
   repoData : option(array(RepoData.repo)), 
   error: option(string) 
 }; 
-  
+/*
 type event = 
   | Loaded(array(RepoData.repo))
   | Request
   | NetworkError(string);
-
+*/
 let initialState = () => { 
   repoData : None, 
   error : None
@@ -17,16 +17,16 @@ let initialState = () => {
 
 let component = ReasonReact.reducerComponent("App");
 
-let createRepoItem = repoData => <RepoItem repo=repoData />;
+let createRepoItem = (i, repoData) => <RepoItem key={string_of_int(i)} repo=repoData />;
 
 let loadReposButton = send =>
-  <button onClick=(_event => send(Request))>
+  <button onClick=(_event => send(`Request))>
     {ReasonReact.string("Load Repos")}
   </button>;
 
 let createRepoItems = (repoItems, send) =>
   switch repoItems {
-    | Some(repos) => ReasonReact.array(Array.map(createRepoItem, repos))
+    | Some(repos) => ReasonReact.array(Array.mapi(createRepoItem, repos))
     | None => loadReposButton(send)
   };
 
@@ -34,21 +34,21 @@ let resolve = (send) =>
   Js.Promise.then_(
     (res) => 
       switch res {
-      | Js.Result.Ok(repos) => { send(Loaded(repos)); Js.Promise.resolve(); }
-      | Js.Result.Error(_err) => { send(NetworkError("Error")); Js.Promise.resolve(); }
+      | Js.Result.Ok(repos) => { send(`Loaded(repos)); Js.Promise.resolve(); }
+      | Js.Result.Error(_err) => { send(`NetworkError("Error")); Js.Promise.resolve(); }
       }
   ) 
 
 let reducer = (event, state) =>
   switch event {  
-  | Request => ReasonReact.SideEffects(
+  | `Request => ReasonReact.SideEffects(
       self => {
         Api.fetchRepos()
         |> resolve(self.send)
         |> ignore;
       })
-  | Loaded(loadedRepos) => ReasonReact.Update({ ...state, repoData: Some(loadedRepos) })
-  | NetworkError(err) => ReasonReact.Update({ ...state, error: Some(err) })
+  | `Loaded(loadedRepos) => ReasonReact.Update({ ...state, repoData: Some(loadedRepos) })
+  | `NetworkError(err) => ReasonReact.Update({ ...state, error: Some(err) })
   };
 
 let render = (~repoData, ~error, ~send) =>
