@@ -19,6 +19,7 @@ let make = (~store: Events.store, _children) => {
 
   render: _self => 
     <div>
+      <h1> (ReasonReact.string("Hello")) </h1>
       <span>
         <RepoList store />
       </span>

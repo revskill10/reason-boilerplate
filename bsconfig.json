@@ -29,7 +29,10 @@
   , "@glennsl/bs-json"
   , "bs-axios"
   ],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "bs-dev-dependencies": [
+    "bs-enzyme",
+    "@glennsl/bs-jest"
+  ],
   "reason": {
     "react-jsx": 2
   },

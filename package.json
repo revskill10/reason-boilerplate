@@ -63,7 +63,9 @@
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.2",
+    "bs-enzyme": "^0.4.0",
     "bs-platform": "^4.0.3",
+    "enzyme-adapter-react-16": "^1.1.1",
     "reason-react": "^0.4.2"
   },
   "jest": {
@@ -72,7 +74,8 @@
       "src/**/*.{re}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/tools/jest/setup-react-adapter.js"
     ],
     "testMatch": [
       "<rootDir>/src/__tests__/**/*_test.{re,js}"
@@ -86,7 +89,7 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!@glennsl|bs-platform|reason-react)"
+      "/node_modules/(?!@glennsl|bs-platform|reason-react|bs-enzyme)"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
@@ -100,7 +103,7 @@
       "jsx",
       "node",
       "mjs"
-    ]
+    ]    
   },
   "babel": {
     "presets": [
