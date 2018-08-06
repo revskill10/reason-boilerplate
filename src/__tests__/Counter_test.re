@@ -1,17 +1,3 @@
-# ReasonML Boilerplate
-
-What buys you here ?
-
-- ReasonML plus React in a project
-- Hot reloading both sources and tests
-- Jest testing
-- Sensible EventStore for pure store mutation
-
-Examples:
-
-- Testing a component:
-
-```
 open Jest;
 
 describe("Counter", () => {
@@ -35,4 +21,3 @@ describe("Counter", () => {
     expect(Enzyme.contains(expectedNode, wrapper)) |> toBe(true)
   });
 });
-```

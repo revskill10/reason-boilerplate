@@ -9,7 +9,7 @@ let make = (_children) => {
     <header> 
       <a href="#"> (str("Logo")) </a>
       <span> (str("Super Marvel Heroes")) </span>
-      <input placeholder="search" />
+      <input placeholder="search 1" />
       <button> (str("Search")) </button>
     </header>
 };
