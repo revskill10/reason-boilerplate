@@ -1,12 +1,5 @@
 open Jest;
-
-describe("Expect", () => {
-  open Expect;
-
-  test("toBe", () => {
-    expect(Counter.add(1,2)) |> toBe(3));
-  }    
-});
+open Counter;
 
 describe("Expect.Operators", () => {
     open Expect;
