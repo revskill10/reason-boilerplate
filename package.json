@@ -67,32 +67,32 @@
     "reason-react": "^0.4.2"
   },
   "jest": {
+    "rootDir": ".",
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
+      "src/**/*.{re}"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
-      "<rootDir>/__tests__",
-      "<rootDir>/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/__tests__/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/src/__tests__/**/*_test.{re,js}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.+\\.(re|ml)$": "bs-loader",
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!@glennsl|bs-platform)",
-      "/public/"
+      "/node_modules/(?!@glennsl|bs-platform|reason-react)"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
     "moduleFileExtensions": [
+      "re",
       "web.js",
       "js",
       "json",
