@@ -1,13 +1,9 @@
 {
   "name": "reason-scripts",
-  "sources": [
+  "sources": [    
     {
-      "dir" : "src", 
+      "dir" : "src",
       "subdirs": true
-    },
-    {
-      "dir": "__tests__",
-      "type": "dev"
     }
   ],
   "bs-dependencies": [
@@ -26,5 +22,5 @@
     "module": "es6",
     "in-source": true
   },
-  "suffix": ".js"
+  "suffix": ".bs.js"
 }
