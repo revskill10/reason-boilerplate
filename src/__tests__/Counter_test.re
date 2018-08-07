@@ -7,10 +7,6 @@ describe("Counter", () => {
   test("add", () =>
     expect(Counter.add(1, 2)) === 3)
 
-  test("increase", () => {
-    expect(1 + 1) === 2;
-  });
-
   test("component", () => {
     let store: Store.store = {
       state: { counter: { count: 1 } } ,

@@ -21,6 +21,10 @@
       "dir": "src/__tests__",
       "type": "dev",
       "subdirs": true
+    },
+    {
+      "dir": "src/server",
+      "subdirs": true
     }
   ],
   "bs-dependencies": [
@@ -28,6 +32,7 @@
   , "bs-css"
   , "@glennsl/bs-json"
   , "bs-axios"
+  , "bs-express"
   ],
   "bs-dev-dependencies": [
     "bs-enzyme",
@@ -39,7 +44,7 @@
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
   "package-specs": {
-    "module": "es6",
+    "module": "commonjs",
     "in-source": true
   },
   "suffix": ".bs.js"
