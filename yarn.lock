@@ -2712,6 +2712,10 @@ es6-symbol@3.1.1, es6-symbol@^3.1.1, es6-symbol@~3.1.1:
     d "1"
     es5-ext "~0.10.14"
 
+es6-template-string@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/es6-template-string/-/es6-template-string-1.1.0.tgz#bcd2578f8a27cacab18949af91e23a6c8187d21c"
+
 es6-weak-map@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/es6-weak-map/-/es6-weak-map-2.0.2.tgz#5e3ab32251ffd1538a1f8e5ffa1357772f92d96f"

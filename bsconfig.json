@@ -5,6 +5,9 @@
       "dir" : "src"
     },
     {
+      "dir" : "src/entries"
+    },
+    {
       "dir" : "src/i18n"
     },
     {
