@@ -1,13 +1,14 @@
 # ReasonML Boilerplate
 
-What buys you here ?
+## What buys you here ?
 
 - ReasonML plus React in a project
-- Hot reloading both sources and tests
+- Hot reloading both client, server and tests
 - Jest testing
 - Sensible EventStore for pure store mutation
+- Server side rendering
 
-Examples:
+## Examples:
 
 - Testing a component:
 
@@ -35,4 +36,12 @@ describe("Counter", () => {
     expect(Enzyme.contains(expectedNode, wrapper)) |> toBe(true)
   });
 });
+```
+
+## Development:
+
+```
+yarn start:client
+yarn start:server
+yarn test
 ```

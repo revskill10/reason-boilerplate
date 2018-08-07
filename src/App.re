@@ -1,5 +1,3 @@
-[%bs.raw {|require('./styles/App.css')|}];
-
 type state = { 
   repoData : option(array(Store.repo)), 
   error: option(string) 
