@@ -61,3 +61,7 @@ yarn test
 
 - Multiple entries for each server-side routes.
 - Reuse event store between server and client
+
+## Materials for deep references:
+
+- [FFI with ReasonML and Javascript](https://medium.com/@davidgomes/exploring-bucklescripts-interop-with-javascript-in-reason-a00ad3e6d81b)
