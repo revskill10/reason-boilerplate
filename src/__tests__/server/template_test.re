@@ -15,4 +15,8 @@ describe("Template", () => {
     |> Template.make(~title, ());
     expect(content) |> toContainString(title);
   });
+
+  test("Helper.add", () => {
+    expect(Template.Helper.add(1,2)) |> toEqual(3);
+  });
 });

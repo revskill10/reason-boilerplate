@@ -1,6 +1,11 @@
 /* make the express app */
 let app = Express.App.make();
 
+Express.Static.defaultOptions()
+|> Express.Static.make("build/static")
+|> Express.Static.asMiddleware
+|> Express.App.useOnPath(app, ~path="/assets");
+
 /* Our initial rendering function, we will soon make this way better */
 let renderHTML = (_next, _req, res) => {
   let content = <Store 

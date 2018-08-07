@@ -1505,6 +1505,10 @@ bs-loader@^2.0.3:
     loader-utils "^1.1.0"
     read-bsconfig "^1.0.1"
 
+bs-node@reasonml-community/bs-node:
+  version "0.0.1"
+  resolved "https://codeload.github.com/reasonml-community/bs-node/tar.gz/20ef6d2d7c00e923aba33b0629ca5623a4460712"
+
 bs-platform@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-4.0.3.tgz#4510c1c915cc5b169b5717e5c0ada52d3f99ff98"
@@ -2707,6 +2711,10 @@ es6-symbol@3.1.1, es6-symbol@^3.1.1, es6-symbol@~3.1.1:
   dependencies:
     d "1"
     es5-ext "~0.10.14"
+
+es6-template-string@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/es6-template-string/-/es6-template-string-1.1.0.tgz#bcd2578f8a27cacab18949af91e23a6c8187d21c"
 
 es6-weak-map@^2.0.1:
   version "2.0.2"
