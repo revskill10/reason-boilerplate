@@ -5,7 +5,8 @@ let make = (~title, (), content) => {j|
         <title>$title</title>
       </head>
       <body>
-        <div id="react-root">$content</div>
+        <div id="root">$content</div>
+        <script src="/assets/js/main.502be691.js"></script>
       </body>
     </html>
 |j};

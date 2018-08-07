@@ -33,6 +33,7 @@
   , "@glennsl/bs-json"
   , "bs-axios"
   , "bs-express"
+  , "bs-node"
   ],
   "bs-dev-dependencies": [
     "bs-enzyme",
