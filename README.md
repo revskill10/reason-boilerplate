@@ -1,5 +1,8 @@
 # ReasonML Boilerplate
 
+> Production code should be unit tested and type-safe.
+> Production code should be functional: easy for testing, easily portable between implementations, easy to reason.
+
 ## What buys you here ?
 
 - ReasonML plus React in a project
