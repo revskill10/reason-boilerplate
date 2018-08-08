@@ -12,6 +12,7 @@
 - Sensible EventStore for pure store mutation
 - Server side rendering
 - Code coverage on every save
+- API utilities to work with GraphQL and Rest API
 
 ## What is this Universal Application ?
 
@@ -83,7 +84,7 @@ describe("GraphQL", () => {
 ## Development:
 
 ```
-yarn send-introspection-query http://localhost:8081/v1alpha1/graphql -H "X-Hasura-Access-Key:mysecretkey"
+yarn send-introspection-query http://localhost:8080/v1alpha1/graphql -H "X-Hasura-Access-Key:mysecretkey"
 
 yarn start:client
 
