@@ -13,10 +13,5 @@ let make = (~title, (), content) =>
 |j};
 
 module Helper = {
-  let add = [%raw {|
-    function(a, b) {
-      console.log("hello from raw JavaScript!");
-      return a + b
-    }
-  |}];
+  let add = (a: int, b: int) : int => a + b;
 }

@@ -37,6 +37,7 @@
   , "bs-axios"
   , "bs-express"
   , "bs-node"
+  , "bs-fetch"
   ],
   "bs-dev-dependencies": [
     "bs-enzyme",
@@ -51,5 +52,8 @@
     "module": "commonjs",
     "in-source": true
   },
-  "suffix": ".bs.js"
+  "suffix": ".bs.js",
+  "ppx-flags": [
+    "graphql_ppx/ppx"
+  ]
 }

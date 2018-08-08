@@ -29,3 +29,7 @@ yarn-error.log*
 
 #css
 src/styles/*.css
+
+#graphql_ppx_cache
+.graphql_ppx_cache
+graphql_schema.json
